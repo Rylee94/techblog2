@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { User, Comment } = require("../../models");
-const withAuth = require("../../utils/auth");
+const { User } = require("../../models");
+// const withAuth = require("../../utils/auth");
 
 router.post("/signup", async (req, res) => {
   try {
@@ -52,17 +52,17 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.post("/comment", withAuth, async (req, res) => {
-  try {
-    const newComment = await Comment.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+// router.post("/comment", withAuth, async (req, res) => {
+//   try {
+//     const newComment = await Comment.create({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//     });
 
-    res.status(200).json(newComment);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.status(200).json(newComment);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 module.exports = router;

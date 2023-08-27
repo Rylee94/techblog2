@@ -1,1 +1,35 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog 2.0</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+
+            {{#unless logged_in}}
+            <a href="/login">Login</a>
+            {{else}}
+            <a class="" href="#" id="logout">Logout</a>
+            {{/unless}}
+
+        </div>
+        <div>
+            <h1>Tech Blog 2.0</h1>
+        </div>
+    </nav>
+    <!-- Render the sub layout -->
+    {{{ body }}}
+    {{#if logged_in}}
+    <p>logged in</p>
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
